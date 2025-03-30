@@ -8,20 +8,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #3a6ea5;
-            --secondary: #c0392b;
-            --accent: #f39c12;
-            --light: #f5f5f5;
-            --dark: #2c3e50;
+            --primary: #8e44ad;
+            --secondary: #e74c3c;
+            --accent: #2ecc71;
+            --light: #f8f9fa;
+            --dark: #2d3436;
             --text: #333333;
             --container: 1200px;
         }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         
         body {
@@ -110,7 +112,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            background: linear-gradient(45deg, rgba(142, 68, 173, 0.9), rgba(41, 128, 185, 0.9)), url('/api/placeholder/1920/1080') center/cover no-repeat;
             height: 85vh;
             display: flex;
             align-items: center;
@@ -118,6 +120,29 @@
             text-align: center;
             margin-top: 0;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            background: url('/api/placeholder/1920/1080') center/cover no-repeat;
+            opacity: 0.1;
+            animation: pulse 8s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
         }
         
         .hero-content {
@@ -155,14 +180,33 @@
         }
         
         .btn-primary {
-            background-color: var(--primary);
+            background: linear-gradient(to right, var(--primary), #9b59b6);
             color: white;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .btn-primary:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #9b59b6, var(--primary));
+            z-index: -1;
+            transition: opacity 0.5s ease;
+            opacity: 0;
         }
         
         .btn-primary:hover {
-            background-color: #2980b9;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 7px 25px rgba(142, 68, 173, 0.3);
+        }
+        
+        .btn-primary:hover:before {
+            opacity: 1;
         }
         
         .btn-secondary {
@@ -234,30 +278,63 @@
         }
         
         .feature-card {
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            padding: 30px;
+            background-color: #fff;
+            border-radius: 16px;
+            padding: 40px 30px;
             text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
         }
         
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(142, 68, 173, 0.2);
+            border-color: rgba(142, 68, 173, 0.2);
+        }
+        
+        .feature-card:after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(142, 68, 173, 0.03), rgba(46, 204, 113, 0.03), rgba(142, 68, 173, 0.03));
+            top: -50%;
+            left: -50%;
+            z-index: -1;
+            transition: all 0.6s;
+            transform: translateZ(0) rotate(0deg);
+            opacity: 0;
+        }
+        
+        .feature-card:hover:after {
+            opacity: 1;
+            transform: translateZ(0) rotate(45deg);
         }
         
         .feature-icon {
-            height: 70px;
-            width: 70px;
-            margin: 0 auto 20px;
-            background-color: rgba(58, 110, 165, 0.1);
+            height: 80px;
+            width: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, rgba(142, 68, 173, 0.1), rgba(46, 204, 113, 0.1));
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            font-size: 2rem;
+            border-radius: 20px;
+            font-size: 2.2rem;
             color: var(--primary);
+            transform: rotate(-5deg);
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.1);
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: rotate(0deg) scale(1.1);
+            color: var(--accent);
+            box-shadow: 0 8px 25px rgba(142, 68, 173, 0.2);
         }
         
         .feature-card h3 {
@@ -289,10 +366,11 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 2px;
+            width: 4px;
             height: 100%;
-            background-color: var(--primary);
-            opacity: 0.3;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            opacity: 0.7;
+            border-radius: 4px;
         }
         
         .step {
@@ -306,34 +384,62 @@
         }
         
         .step-number {
-            height: 50px;
-            width: 50px;
-            background-color: var(--primary);
+            height: 60px;
+            width: 60px;
+            background: linear-gradient(135deg, var(--primary), #9b59b6);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1;
+            box-shadow: 0 0 0 8px rgba(142, 68, 173, 0.1), 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+        }
+        
+        .step:hover .step-number {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 0 0 12px rgba(142, 68, 173, 0.1), 0 15px 25px rgba(0, 0, 0, 0.2);
         }
         
         .step-content {
             width: 45%;
-            padding: 30px;
+            padding: 35px;
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            border: 1px solid rgba(142, 68, 173, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step-content:before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(142, 68, 173, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+            transition: all 0.5s;
+            z-index: -1;
         }
         
         .step-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(142, 68, 173, 0.2);
+        }
+        
+        .step-content:hover:before {
+            transform: scale(2);
         }
         
         .step:nth-child(odd) .step-content {
@@ -354,9 +460,32 @@
         /* CTA Section */
         .cta-section {
             padding: 80px 0;
-            background: linear-gradient(to right, var(--primary), #2c3e50);
+            background: linear-gradient(135deg, var(--primary), #9b59b6, #6c5ce7);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: slide 20s linear infinite;
+            opacity: 0.5;
+        }
+        
+        @keyframes slide {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
         }
         
         .cta-content {
@@ -394,21 +523,40 @@
         }
         
         .email-form button {
-            padding: 15px 30px;
-            background-color: var(--secondary);
+            padding: 15px 35px;
+            background: linear-gradient(to right, var(--secondary), #e67e22);
             color: white;
             border: none;
             border-radius: 30px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .email-form button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #e67e22, var(--secondary));
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s;
         }
         
         .email-form button:hover {
-            background-color: #a93226;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+        }
+        
+        .email-form button:hover:before {
+            opacity: 1;
         }
         
         /* Testimonials */
@@ -803,7 +951,7 @@
                     <h3>About TownSquareVibes</h3>
                     <p>A free platform uniting Wilson County through local news, community discussions, and a rewards program that supports our local economy. Launching on Kickstarter in July 2025.</p>
                     <div class="social-links">
-                        <a href="https://x.com/TownSqVibesTN" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://x.com/townsquarevibes" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
@@ -823,7 +971,7 @@
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
                         <li><i class="fas fa-envelope"></i> <a href="mailto:info@townsquarevibes.com">info@townsquarevibes.com</a></li>
-                        <li><i class="fab fa-twitter"></i> <a href="https://x.com/TownSqVibesTN" target="_blank">@TownSqVibesTN</a></li>
+                        <li><i class="fab fa-twitter"></i> <a href="https://x.com/townsquarevibes" target="_blank">@townsquarevibes</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Wilson County, Tennessee</li>
                     </ul>
                 </div>
