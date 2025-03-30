@@ -3,115 +3,835 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TownSquareVibes.com - Wilson County’s free digital hub for news, community, and rewards. Kickstarter coming July 2025!">
-    <title>TownSquareVibes | Wilson County’s Digital Hub</title>
+    <meta name="description" content="TownSquareVibes - Wilson County's free digital hub for news, community, and local rewards. Kickstarter launching July 2025!">
+    <title>TownSquareVibes | Wilson County's Digital Community</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #3a6ea5;
+            --secondary: #c0392b;
+            --accent: #f39c12;
+            --light: #f5f5f5;
+            --dark: #2c3e50;
+            --text: #333333;
+            --container: 1200px;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        
         body {
-            background-color: #f9f4ef;
-            color: #333;
+            background-color: var(--light);
+            color: var(--text);
             line-height: 1.6;
-            text-align: center;
         }
-        header {
-            background-color: #8b5e34;
-            color: #fff;
-            padding: 2rem;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        header p {
-            font-size: 1.2rem;
-        }
-        .hero {
-            padding: 3rem 1rem;
-            max-width: 800px;
+        
+        .container {
+            width: 100%;
+            max-width: var(--container);
             margin: 0 auto;
+            padding: 0 20px;
         }
-        .hero h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #5e3f2a;
+        
+        /* Navigation */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
         }
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .cta {
-            background-color: #d9a66b;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .cta input[type="email"] {
-            padding: 0.8rem;
-            width: 70%;
-            max-width: 300px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-        .cta button {
-            padding: 0.8rem 2rem;
-            background-color: #5e3f2a;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .cta button:hover {
-            background-color: #8b5e34;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-        footer a {
-            color: #d9a66b;
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
             text-decoration: none;
         }
-        footer a:hover {
-            text-decoration: underline;
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
         }
-        @media (max-width: 600px) {
-            header h1 { font-size: 2rem; }
-            .hero h2 { font-size: 1.5rem; }
-            .cta input[type="email"] { width: 100%; }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        
+        .nav-links .cta-button:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #a93226;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            height: 70px;
+            width: 70px;
+            margin: 0 auto 20px;
+            background-color: rgba(58, 110, 165, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background-color: #f5f9fd;
+        }
+        
+        .steps {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .steps:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary);
+            opacity: 0.3;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step-number {
+            height: 50px;
+            width: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .step-content {
+            width: 45%;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .step-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step:nth-child(odd) .step-content {
+            margin-left: auto;
+        }
+        
+        .step-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .step-content p {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(to right, var(--primary), #2c3e50);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .email-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .email-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+        
+        .email-form button {
+            padding: 15px 30px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .email-form button:hover {
+            background-color: #a93226;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-card .quote {
+            font-size: 2rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .step-content {
+                width: 100%;
+                margin-left: 0 !important;
+            }
+            
+            .steps:before {
+                left: 25px;
+            }
+            
+            .step {
+                flex-direction: column;
+                margin-left: 50px;
+            }
+            
+            .step-number {
+                left: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .email-form {
+                flex-direction: column;
+            }
+            
+            .email-form input, .email-form button {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>TownSquareVibes</h1>
-        <p>Wilson County’s Free Digital Town Square</p>
-    </header>
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-landmark"></i>
+                TownSquareVibes
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#testimonials">Community</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="cta-button">Join Waitlist</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
 
     <section class="hero">
-        <h2>Your Community Hub</h2>
-        <p>TownSquareVibes.com is coming to Wilson County, Tennessee—a free platform uniting local news, discussion, and rewards to keep our economy thriving. Join our Kickstarter in July 2025 to bring it to life!</p>
-        <div class="cta">
-            <p>Stay in the loop—sign up for updates:</p>
-            <form action="https://formspree.io/f/your-form-id" method="POST">
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <button type="submit">Sign Up</button>
-            </form>
+        <div class="hero-content">
+            <h1>Wilson County's Digital Town Square</h1>
+            <p>Connect, engage, and support your local community through a free platform uniting news, discussions, and rewards that keep our economy thriving.</p>
+            <div class="hero-buttons">
+                <a href="#features" class="btn btn-primary">Discover Features</a>
+                <a href="#signup" class="btn btn-outline">Join the Community</a>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>Follow us on X: <a href="https://x.com/TownSqVibesTN" target="_blank">@TownSqVibesTN</a> | Questions? Email <a href="mailto:info@townsquarevibes.com">info@townsquarevibes.com</a></p>
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why TownSquareVibes?</h2>
+                <p>A new way to experience and contribute to Wilson County's vibrant community</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>Local News Hub</h3>
+                    <p>Stay informed with curated local news, updates, and events happening around Wilson County. Never miss what matters most to your community.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Community Discussions</h3>
+                    <p>Engage in meaningful conversations with neighbors, share ideas, and collaborate on local initiatives that impact where you live.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Local Rewards</h3>
+                    <p>Earn points for active participation and redeem them at local businesses, encouraging support for Wilson County's economy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Business Directory</h3>
+                    <p>Discover, support, and connect with local businesses through our comprehensive directory and exclusive promotions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Community Calendar</h3>
+                    <p>Find local events, organize meetups, and never miss important community gatherings with our integrated calendar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Volunteer Opportunities</h3>
+                    <p>Connect with local causes that need your help and find meaningful ways to give back to your community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Simple steps to become an active member of your digital community</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Create Your Account</h3>
+                        <p>Sign up for free and create your community profile to start connecting with Wilson County residents and businesses.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Explore Local Content</h3>
+                        <p>Browse through local news, events, discussions, and business offerings tailored to your interests and location.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Engage & Participate</h3>
+                        <p>Join conversations, share your thoughts, attend events, and contribute to making Wilson County even better.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Earn & Redeem Rewards</h3>
+                        <p>Collect points for your community contributions and use them at local businesses, supporting our local economy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Voices</h2>
+                <p>What Wilson County residents are excited about</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote"><i class="fas fa-quote-right"></i></div>
+                    <p class="testimonial-text">As a small business owner in Lebanon, I'm excited about having a platform that brings the community together and helps local businesses thrive.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/80/80" alt="Sarah Johnson" class="author-image">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Local Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote"><i class="fas fa-quote-right"></i></div>
+                    <p class="testimonial-text">I'm looking forward to having a central place to discover local events and connect with others who are passionate about making our community stronger.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/80/80" alt="Michael Roberts" class="author-image">
+                        <div class="author-info">
+                            <h4>Michael Roberts</h4>
+                            <p>Wilson County Resident</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote"><i class="fas fa-quote-right"></i></div>
+                    <p class="testimonial-text">The rewards program is such a smart way to encourage locals to keep their spending within the community. It's a win-win for everyone!</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/80/80" alt="Jennifer Patel" class="author-image">
+                        <div class="author-info">
+                            <h4>Jennifer Patel</h4>
+                            <p>Community Advocate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="signup">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Be First to Experience TownSquareVibes</h2>
+                <p>Join our waitlist to receive exclusive updates and be the first to know when our Kickstarter launches in July 2025. Together, we'll build a stronger Wilson County.</p>
+                <form class="email-form" action="https://formspree.io/f/your-form-id" method="POST">
+                    <input type="email" name="email" placeholder="Your email address" required>
+                    <button type="submit">Join Waitlist</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About TownSquareVibes</h3>
+                    <p>A free platform uniting Wilson County through local news, community discussions, and a rewards program that supports our local economy. Launching on Kickstarter in July 2025.</p>
+                    <div class="social-links">
+                        <a href="https://x.com/TownSqVibesTN" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Community</a></li>
+                        <li><a href="#signup">Join Waitlist</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@townsquarevibes.com">info@townsquarevibes.com</a></li>
+                        <li><i class="fab fa-twitter"></i> <a href="https://x.com/TownSqVibesTN" target="_blank">@TownSqVibesTN</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Wilson County, Tennessee</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 TownSquareVibes. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
