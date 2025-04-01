@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TownSquareVibes Wireframes</title>
+  <style>
+    :root {
+      --primary: #3742fa;
+      --secondary: #ff6b6b;
+      --accent: #1dd1a1;
+      --light: #f1f2f6;
+      --dark: #2f3542;
+      --success: #2ed573;
+      --warning: #ffa502;
+      --danger: #ff4757;
+      --text: #333;
+      --background: #f9f9f9;
+      --border: #e4e4e4;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      background-color: var(--background);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .wireframe-section {
+      margin-bottom: 5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .wireframe-header {
+      background-color: var(--dark);
+      color: white;
+      padding: 1rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .wireframe-description {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      background-color: var(--light);
+    }
+
+    .wireframe-content {
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 2rem 0;
+      color: var(--dark);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    /* Wireframe-specific styles */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      background-color: white;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .navigation {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .navigation a {
+      text-decoration: none;
+      color: var(--dark);
+      padding: 0.5rem;
+    }
+
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .feed {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .post {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      background-color: white;
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-content {
+      margin-bottom: 1rem;
+    }
+
+    .post-image {
+      width: 100%;
+      height: 300px;
+      background-color: var(--light);
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+    }
+
+    .post-actions {
+      display: flex;
+      gap: 1rem;
+      color: var(--dark);
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .action {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 4px;
+    }
+
+    .action:hover {
+      background-color: var(--light);
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sidebar-section {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      background-color: white;
+    }
+
+    .leaderboard-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .profile-section {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .profile-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      background-color: white;
+      text-align: center;
+    }
+
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      background-color: var(--light);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      background-color: white;
+    }
+
+    .tab-navigation {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      font-weight: bold;
+      border-bottom: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .business-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .business-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      background-color: white;
+    }
+
+    .business-logo {
+      width: 100%;
+      height: 150px;
+      background-color: var(--light);
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .reward-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .reward-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reward-image {
+      width: 100%;
+      height: 180px;
+      background-color: var(--light);
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background-color: var(--light);
+      border-radius: 4px;
+      margin: 0.5rem 0;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background-color: var(--success);
+      border-radius: 4px;
+    }
+
+    .button {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .button-secondary {
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    .points-display {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--light);
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 400px;
+      background-color: var(--light);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid var(--border);
+    }
+
+    .achievement-badge {
+      width: 80px;
+      height: 80px;
+      background-color: var(--light);
+      border-radius: 50%;
+      margin: 0 auto 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .achievement-item {
+      text-align: center;
+    }
+
+    .level-card {
+      text-align: center;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background-color: white;
+    }
+
+    .reputation-score {
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TownSquareVibes.com Wireframes</h1>
+    
+    <!-- Homepage -->
+    <div class="wireframe-section">
+      <div class="wireframe-header">Homepage</div>
+      <div class="wireframe-description">
+        <p>The homepage serves as the main content feed, showcasing aggregated local news and events from Wilson County. Users can interact with content through likes, comments, and shares to earn points.</p>
+      </div>
+      <div class="wireframe-content">
+        <div class="header">
+          <div class="logo">TownSquareVibes</div>
+          <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">Events</a>
+            <a href="#">Rewards</a>
+            <a href="#">Businesses</a>
+          </div>
+          <div class="user-actions">
+            <div class="points-display">🏆 1,250 pts</div>
+            <div>👤 Profile</div>
+          </div>
+        </div>
+        
+        <div class="content-grid">
+          <div class="feed">
+            <div class="post">
+              <div class="post-header">
+                <div><strong>Wilson County News</strong> <span style="color: #777;">• 2h ago</span></div>
+                <div>⭐ 85 Rep</div>
+              </div>
+              <div class="post-content">
+                <h3>New Community Park Opens in Lebanon</h3>
+                <p>The new Cedar City Park opened yesterday with a ribbon-cutting ceremony attended by over 200 residents. The park features playgrounds, walking trails, and a dog park area.</p>
+                <div class="post-image">News Article Image</div>
+              </div>
+              <div class="post-actions">
+                <div class="action">👍 Like <span style="font-size: 0.8rem;">(+2 pts)</span></div>
+                <div class="action">💬 Comment <span style="font-size: 0.8rem;">(+5 pts)</span></div>
+                <div class="action">↗️ Share <span style="font-size: 0.8rem;">(+3 pts)</span></div>
+                <div class="action">🎯 Save</div>
+              </div>
+            </div>
+            
+            <div class="post">
+              <div class="post-header">
+                <div><strong>Wilson County Events</strong> <span style="color: #777;">• 5h ago</span></div>
+                <div>⭐ 92 Rep</div>
+              </div>
+              <div class="post-content">
+                <h3>Farmers Market Returns This Weekend</h3>
+                <p>The popular Wilson County Farmers Market returns this Saturday from 8am to 1pm at the County Fairgrounds. Over 50 local vendors will be selling fresh produce, crafts, and prepared foods.</p>
+                <div class="post-image">Event Image</div>
+              </div>
+              <div class="post-actions">
+                <div class="action">👍 Like <span style="font-size: 0.8rem;">(+2 pts)</span></div>
+                <div class="action">💬 Comment <span style="font-size: 0.8rem;">(+5 pts)</span></div>
+                <div class="action">↗️ Share <span style="font-size: 0.8rem;">(+3 pts)</span></div>
+                <div class="action">🎯 Save</div>
+              </div>
+            </div>
+            
+            <div class="post">
+              <div class="post-header">
+                <div><strong>Sarah Johnson</strong> <span style="color: #777;">• 12h ago</span></div>
+                <div>⭐ 78 Rep</div>
+              </div>
+              <div class="post-content">
+                <h3>Local Business Spotlight: Wilson Crafts</h3>
+                <p>Has anyone checked out the new Wilson Crafts store on Main Street? They have amazing handmade items from local artisans. I picked up some beautiful pottery yesterday.</p>
+                <div class="post-image">User Post Image</div>
+              </div>
+              <div class="post-actions">
+                <div class="action">👍 Like <span style="font-size: 0.8rem;">(+2 pts)</span></div>
+                <div class="action">💬 Comment <span style="font-size: 0.8rem;">(+5 pts)</span></div>
+                <div class="action">↗️ Share <span style="font-size: 0.8rem;">(+3 pts)</span></div>
+                <div class="action">🎯 Save</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="sidebar">
+            <div class="sidebar-section">
+              <h3>Your Stats</h3>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <div>Reputation Score:</div>
+                <div><strong>85/100</strong></div>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <div>Level:</div>
+                <div><strong>Silver Member</strong></div>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <div>Points Balance:</div>
+                <div><strong>1,250 pts</strong></div>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <div>Points to Next Level:</div>
+                <div><strong>750 pts</strong></div>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 62%;"></div>
+              </div>
+            </div>
+            
+            <div class="sidebar-section">
+              <h3>Community Leaderboard</h3>
+              <div class="leaderboard-item">
+                <div>1. Mike Thomas</div>
+                <div>3,450 pts</div>
+              </div>
+              <div class="leaderboard-item">
+                <div>2. Lisa Carter</div>
+                <div>3,205 pts</div>
+              </div>
+              <div class="leaderboard-item">
+                <div>3. Robert Wilson</div>
+                <div>2,980 pts</div>
+              </div>
+              <div class="leaderboard-item">
+                <div>4. Jennifer Smith</div>
+                <div>2,745 pts</div>
+              </div>
+              <div class="leaderboard-item">
+                <div>5. David Johnson</div>
+                <div>2,510 pts</div>
+              </div>
+              <div style="margin-top: 0.5rem; text-align: center;">
+                <div style="color: #777;">Your Rank: 24</div>
+              </div>
+            </div>
+            
+            <div class="sidebar-section">
+              <h3>Featured Local Rewards</h3>
+              <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: flex; justify-content: space-between;">
+                  <div>10% Off at Joe's Diner</div>
+                  <div>500 pts</div>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <div>Free Coffee at Wilson Cafe</div>
+                  <div>300 pts</div>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <div>Movie Ticket at Stardust Cinema</div>
+                  <div>1,500 pts</div>
+                </div>
+              </div>
+              <div style="margin-top: 1rem;">
+                <div class="button">View All Rewards</div>
+              </div>
+            </div>
+            
+            <div class="sidebar-section">
+              <h3>Upcoming Events</h3>
+              <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <div>
+                  <div><strong>Charity 5K Run</strong></div>
+                  <div>Sat, Oct 15 • 8:00 AM</div>
+                </div>
+                <div>
+                  <div><strong>Fall Festival</strong></div>
+                  <div>Sat-Sun, Oct 22-23 • All Day</div>
+                </div>
+                <div>
+                  <div><strong>Town Hall Meeting</strong></div>
+                  <div>Wed, Oct 26 • 7:00 PM</div>
+                </div>
+              </div>
+              <div style="margin-top: 1rem;">
+                <div class="button button-secondary">View All Events</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- User Profile -->
+    <div class="wireframe-section">
+      <div class="wireframe-header">User Profile</div>
+      <div class="wireframe-description">
+        <p>The user profile page showcases reputation score, engagement stats, earned rewards, and achievements. It also displays the user's content interaction history and available point balance.</p>
+      </div>
+      <div class="wireframe-content">
+        <div class="header">
+          <div class="logo">TownSquareVibes</div>
+          <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">Events</a>
+            <a href="#">Rewards</a>
+            <a href="#">Businesses</a>
+          </div>
+          <div class="user-actions">
+            <div class="points-display">🏆 1,250 pts</div>
+            <div>👤 Profile</div>
+          </div>
+        </div>
+        
+        <div class="profile-section">
+          <div class="profile-card">
+            <div class="profile-avatar">Avatar</div>
+            <h2>Sarah Johnson</h2>
+            <div><span class="badge">Silver Member</span></div>
+            <div style="margin: 1rem 0;">
+              <div class="reputation-score">85</div>
+              <div>Reputation Score</div>
+              <div style="color: #777; margin-top: 0.5rem;">Wilson County Resident</div>
+            </div>
+            <div style="margin-top: 1rem;">
+              <div class="button">Edit Profile</div>
+            </div>
+          </div>
+          
+          <div>
+            <div class="profile-stats">
+              <div class="stat-card">
+                <div style="font-size: 2rem; font-weight: bold;">1,250</div>
+                <div>Total Points</div>
+              </div>
+              <div class="stat-card">
+                <div style="font-size: 2rem; font-weight: bold;">72</div>
+                <div>Content Shares</div>
+              </div>
+              <div class="stat-card">
+                <div style="font-size: 2rem; font-weight: bold;">143</div>
+                <div>Comments</div>
+              </div>
+              <div class="stat-card">
+                <div style="font-size: 2rem; font-weight: bold;">215</div>
+                <div>Likes Given</div>
+              </div>
+              <div class="stat-card">
+                <div style="font-size: 2rem; font-weight: bold;">12</div>
+                <div>Rewards Redeemed</div>
+              </div>
+              <div class="stat-card">
+                <div style="font-size: 2rem; font-weight: bold;">8</div>
+                <div>Months Active</div>
+              </div>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+              <div class="tab-navigation">
+                <div class="tab active">Activity</div>
+                <div class="tab">Achievements</div>
+                <div class="tab">Rewards History</div>
+                <div class="tab">Saved Content</div>
+              </div>
+              
+              <div style="margin-top: 1rem;">
+                <h3>Recent Activity</h3>
+                <div class="feed">
+                  <div class="post">
+                    <div class="post-header">
+                      <div><strong>Sarah Johnson</strong> <span style="color: #777;">commented on Wilson County News post</span></div>
+                      <div style="color: #777;">3h ago</div>
+                    </div>
+                    <div class="post-content">
+                      <p>This is wonderful news! I'm looking forward to taking my kids to the new park this weekend.</p>
+                    </div>
+                  </div>
+                  
+                  <div class="post">
+                    <div class="post-header">
+                      <div><strong>Sarah Johnson</strong> <span style="color: #777;">shared Lebanon Times post</span></div>
+                      <div style="color: #777;">Yesterday</div>
+                    </div>
+                    <div class="post-content">
+                      <h3>Local School Wins State Championship</h3>
+                      <p>Congratulations to our amazing high school basketball team! So proud of these talented young athletes.</p>
+                    </div>
+                  </div>
+                  
+                  <div class="post">
+                    <div class="post-header">
+                      <div><strong>Sarah Johnson</strong> <span style="color: #777;">earned achievement</span></div>
+                      <div style="color: #777;">2 days ago</div>
+                    </div>
+                    <div class="post-content" style="display: flex; align-items: center; gap: 1rem;">
+                      <div class="achievement-badge">🌟</div>
+                      <div>
+                        <h3>Community Supporter</h3>
+                        <p>Commented on 100 local news stories</p>
+                        <div><strong>+50 reputation points!</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Achievements & Levels -->
+    <div class="wireframe-section">
+      <div class="wireframe-header">Achievements & Levels</div>
+      <div class="wireframe-description">
+        <p>This page shows the gamification elements including achievements, levels, and reputation system. Users can see their progress and what they need to do to advance.</p>
+      </div>
+      <div class="wireframe-content">
+        <div class="header">
+          <div class="logo">TownSquareVibes</div>
+          <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">Events</a>
+            <a href="#">Rewards</a>
+            <a href="#">Businesses</a>
+          </div>
+          <div class="user-actions">
+            <div class="points-display">🏆 1,250 pts</div>
+            <div>👤 Profile</div>
+          </div>
+        </div>
+        
+        <h2>Your Level Progress</h2>
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem;">
+          <div class="level-card" style="border: 2px solid #ddd;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">Bronze</div>
+            <div style="color: #777; margin-bottom: 0.5rem;">0-1,000 pts</div>
+            <div style="color: green;">✓ Completed</div>
+          </div>
+          <div class="level-card" style="border: 2px solid var(--primary);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">Silver</div>
+            <div style="color: #777; margin-bottom: 0.5rem;">1,000-2,000 pts</div>
+            <div style="font-weight: bold; color: var(--primary);">Current Level</div>
+          </div>
+          <div class="level-card">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">Gold</div>
+            <div style="color: #777; margin-bottom: 0.5rem;">2,000-5,000 pts</div>
+            <div style="color: #777;">750 pts needed</div>
+          </div>
+          <div class="level-card">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">Platinum</div>
+            <div style="color: #777; margin-bottom: 0.5rem;">5,000-10,000 pts</div>
+            <div style="color: #777;">3,750 pts needed</div>
+          </div>
+          <div class="level-card">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">Diamond</div>
+            <div style="color: #777; margin-bottom: 0.5rem;">10,000+ pts</div>
+            <div style="color: #777;">8,750 pts needed</div>
+          </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+          <div>
+            <h2>Reputation Score</h2>
+            <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 1rem;">
+              <div style="font-size: 4rem; font-weight: bold; color: var(--primary);">85</div>
+              <div>
+                <div style="font-weight: bold; margin-bottom: 0.5rem;">Wilson County Resident</div>
+                <div style="color: #777;">Your location gives you a high base reputation score.</div>
+                <div class="progress-bar-container" style="margin-top: 0.5rem;">
+                  <div class="progress-bar" style="width: 85%;"></div>
+                </div>
+              </div>
+            </div>
+            
+            <h3>Reputation Factors</h3>
+            <div style="margin-top: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <div>Wilson County Location</div>
+                <div>+50 points</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <div>Account Age (8 months)</div>
+                <div>+8 points</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <div>Content Engagement</div>
+                <div>+12 points</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <div>Community Achievements</div>
+                <div>+15 points</div>
+              </div>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+              <h3>Reputation Benefits</h3>
+              <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+                <div>✓ Ability to post content</div>
+                <div>✓ Comment without moderation</div>
+                <div>✓ Early access to local events</div>
+                <div>✓ Exclusive reward opportunities</div>
+                <div style="color: #777;">× Vote on community initiatives (90+ required)</div>
+                <div style="color: #777;">× Featured content creator (95+ required)</div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h2>Your Achievements</h2>
+            <div class="achievements-grid">
+              <div class="achievement-item">
+                <div class="achievement-badge">🔍</div>
+                <div><strong>Explorer</strong></div>
+                <div style="font-size: 0.8rem; color: #777;">Visit 10 different sections</div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-badge">💬</div>
+                <div><strong>Commenter</strong></div>
+                <div style="font-size: 0.8rem; color: #777;">Leave 50 comments</div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-badge">👍</div>
+                <div><strong>Supporter</strong></div>
+                <div style="font-size: 0.8rem; color: #777;">Like 100 posts</div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-badge">📰</div>
+                <div><strong>News Junkie</strong></div>
+                <div style="font-size: 0.8rem; color: #777;">Read 25 news articles</div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-badge">📅</div>
+                <div><strong>Event Goer</strong></div>
+                <div style="font-size: 0.8rem; color: #777;">Check in at 5 events</div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-badge" style="background-color: #ddd; color: #777;">🔒</div>
+                <div style="color: #777;"><strong>Locked</strong></div>
+                <div style="font-size: 0.8rem; color: #777;">Keep engaging!</div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-badge" style="background-color: #ddd; color: #777;">🔒</div>
+                <div style="color: #777;"><strong>Locked</strong></div>
+                <div style="font-size: 0.8rem; color: #777;">Keep engaging!</div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-badge" style="background-color: #ddd; color: #777;">🔒</div>
+                <div style="color: #777;"><strong>Locked</strong></div>
+                <div style="font-size: 0.8rem; color: #777;">Keep engaging!</div>
+              </div>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+              <h3>Point Earning Opportunities</h3>
+              <div style="margin-top: 0.5rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <div>Like content</div>
+                  <div>+2 points</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <div>Comment on content</div>
+                  <div>+5 points</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <div>Share content</div>
+                  <div>+3 points</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <div>Create original post</div>
+                  <div>+10 points</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <div>Attend local event</div>
+                  <div>+15 points</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <div>Earn achievement</div>
+                  <div>+25-100 points</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Rewards Marketplace -->
+    <div class="wireframe-section">
+      <div class="wireframe-header">Rewards Marketplace</div>
+      <div class="wireframe-description">
+        <p>The rewards marketplace shows all available point redemption opportunities at local Wilson County businesses. Users can browse by category, location, or point value.</p>
+      </div>
+      <div class="wireframe-content">
+        <div class="header">
+          <div class="logo">TownSquareVibes</div>
+          <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">Events</a>
+            <a href="#">Rewards</a>
+            <a href="#">Businesses</a>
+          </div>
+          <div class="user-actions">
+            <div class="points-display">🏆 1,250 pts</div>
+            <div>👤 Profile</div>
+          </div>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h2>Local Rewards Marketplace</h2>
+          <div class="points-display" style="font-size: 1.2rem;">Available: 1,250 points</div>
+        </div>
+        
+        <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="flex: 1;">
+            <input type="text" placeholder="Search rewards..." style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border);">
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <select style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border);">
+              <option>All Categories</option>
+              <option>Food & Dining</option>
+              <option>Retail & Shopping</option>
+              <option>Entertainment</option>
+              <option>Services</option>
+            </select>
+            <select style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border);">
+              <option>Sort By: Newest</option>
+              <option>Points: Low to High</option>
+              <option>Points: High to Low</option>
+              <option>Popularity</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="reward-grid">
+          <div class="reward-card">
+            <div class="reward-image">Coffee Shop Image</div>
+            <div style="margin-bottom: 0.5rem;">
+              <span class="badge">Food & Dining</span>
+              <span class="badge">Staff Pick</span>
+            </div>
+            <h3>Free Coffee at Wilson Cafe</h3>
+            <p>Enjoy a free medium coffee of your choice at Wilson Cafe, a popular local coffee shop in downtown Lebanon.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+              <div style="font-weight: bold;">300 points</div>
+              <div class="button">Redeem</div>
+            </div>
+          </div>
+          
+          <div class="reward-card">
+            <div class="reward-image">Restaurant Image</div>
+            <div style="margin-bottom: 0.5rem;">
+              <span class="badge">Food & Dining</span>
+            </div>
+            <h3>10% Off at Joe's Diner</h3>
+            <p>Get 10% off your entire bill at Joe's Diner, a family-owned restaurant serving classic American comfort food.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+              <div style="font-weight: bold;">500 points</div>
+              <div class="button">Redeem</div>
+            </div>
+          </div>
+          
+          <div class="reward-card">
+            <div class="reward-image">Movie Theater Image</div>
+            <div style="margin-bottom: 0.5rem;">
+              <span class="badge">Entertainment</span>
+              <span class="badge">Popular</span>
+            </div>
+            <h3>Movie Ticket at Stardust Cinema</h3>
+            <p>Redeem for one general admission ticket to any standard showing at Stardust Cinema, valid any day of the week.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+              <div style="font-weight: bold;">1,500 points</div>
+              <div class="button">Redeem</div>
+            </div>
+          </div>
+          
+          <div class="reward-card">
+            <div class="reward-image">Store Image</div>
+            <div style="margin-bottom: 0.5rem;">
+              <span class="badge">Retail & Shopping</span>
+            </div>
+            <h3>$5 Off at Wilson Books</h3>
+            <p>Receive $5 off any purchase of $20 or more at Wilson Books, the county's favorite independent bookstore.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+              <div style="font-weight: bold;">750 points</div>
+              <div class="button">Redeem</div>
+            </div>
+          </div>
+          
+          <div class="reward-card">
+            <div class="reward-image">Ice Cream Shop Image</div>
+            <div style="margin-bottom: 0.5rem;">
+              <span class="badge">Food & Dining</span>
+            </div>
+            <h3>Free Ice Cream Cone at Scoops</h3>
+            <p>Enjoy a free single-scoop ice cream cone at Scoops, featuring locally-made premium ice cream in various flavors.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+              <div style="font-weight: bold;">400 points</div>
+              <div class="button">Redeem</div>
+            </div>
+          </div>
+          
+          <div class="reward-card">
+            <div class="reward-image">Car Wash Image</div>
+            <div style="margin-bottom: 0.5rem;">
+              <span class="badge">Services</span>
+              <span class="badge">New</span>
+            </div>
+            <h3>Premium Car Wash at Sparkle Clean</h3>
+            <p>Redeem for one premium car wash service at Sparkle Clean, including exterior wash, vacuum, and tire shine.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+              <div style="font-weight: bold;">800 points</div>
+              <div class="button">Redeem</div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-top: 2rem; text-align: center;">
+          <div class="button" style="display: inline-block;">Load More Rewards</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Local Business Directory -->
+    <div class="wireframe-section">
+      <div class="wireframe-header">Local Business Directory</div>
+      <div class="wireframe-description">
+        <p>The business directory showcases local Wilson County businesses that participate in the rewards program. Businesses have their own profiles with reputation scores.</p>
+      </div>
+      <div class="wireframe-content">
+        <div class="header">
+          <div class="logo">TownSquareVibes</div>
+          <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">Events</a>
+            <a href="#">Rewards</a>
+            <a href="#">Businesses</a>
+          </div>
+          <div class="user-actions">
+            <div class="points-display">🏆 1,250 pts</div>
+            <div>👤 Profile</div>
+          </div>
+        </div>
+        
+        <h2>Wilson County Businesses</h2>
+        <div style="margin-bottom: 2rem;">
+          <div class="map-container">Interactive Map of Wilson County Businesses</div>
+        </div>
+        
+        <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="flex: 1;">
+            <input type="text" placeholder="Search businesses..." style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border);">
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <select style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border);">
+              <option>All Categories</option>
+              <option>Restaurants</option>
+              <option>Retail</option>
+              <option>Services</option>
+              <option>Entertainment</option>
+            </select>
+            <select style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border);">
+              <option>Sort By: Reputation</option>
+              <option>Name: A-Z</option>
+              <option>Distance</option>
+              <option>Newest</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="business-grid">
+          <div class="business-card">
+            <div class="business-logo">Logo</div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="margin: 0;">Wilson Cafe</h3>
+              <div>⭐ 94</div>
+            </div>
+            <div style="color: #777; margin-bottom: 0.5rem;">Coffee Shop • Lebanon</div>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span class="badge">Rewards Partner</span>
+              <span class="badge">Top Rated</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+              <div class="button button-secondary">View Profile</div>
+              <div style="color: #777;">3 Rewards</div>
+            </div>
+          </div>
+          
+          <div class="business-card">
+            <div class="business-logo">Logo</div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="margin: 0;">Joe's Diner</h3>
+              <div>⭐ 89</div>
+            </div>
+            <div style="color: #777; margin-bottom: 0.5rem;">Restaurant • Mt. Juliet</div>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span class="badge">Rewards Partner</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+              <div class="button button-secondary">View Profile</div>
+              <div style="color: #777;">2 Rewards</div>
+            </div>
+          </div>
+          
+          <div class="business-card">
+            <div class="business-logo">Logo</div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="margin: 0;">Stardust Cinema</h3>
+              <div>⭐ 91</div>
+            </div>
+            <div style="color: #777; margin-bottom: 0.5rem;">Movie Theater • Lebanon</div>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span class="badge">Rewards Partner</span>
+              <span class="badge">Popular</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+              <div class="button button-secondary">View Profile</div>
+              <div style="color: #777;">1 Reward</div>
+            </div>
+          </div>
+          
+          <div class="business-card">
+            <div class="business-logo">Logo</div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="margin: 0;">Wilson Books</h3>
+              <div>⭐ 87</div>
+            </div>
+            <div style="color: #777; margin-bottom: 0.5rem;">Bookstore • Lebanon</div>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span class="badge">Rewards Partner</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+              <div class="button button-secondary">View Profile</div>
+              <div style="color: #777;">1 Reward</div>
+            </div>
+          </div>
+          
+          <div class="business-card">
+            <div class="business-logo">Logo</div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="margin: 0;">Scoops</h3>
+              <div>⭐ 85</div>
+            </div>
+            <div style="color: #777; margin-bottom: 0.5rem;">Ice Cream Shop • Watertown</div>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span class="badge">Rewards Partner</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+              <div class="button button-secondary">View Profile</div>
+              <div style="color: #777;">1 Reward</div>
+            </div>
+          </div>
+          
+          <div class="business-card">
+            <div class="business-logo">Logo</div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="margin: 0;">Sparkle Clean</h3>
+              <div>⭐ 83</div>
+            </div>
+            <div style="color: #777; margin-bottom: 0.5rem;">Car Wash • Mt. Juliet</div>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span class="badge">Rewards Partner</span>
+              <span class="badge">New</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+              <div class="button button-secondary">View Profile</div>
+              <div style="color: #777;">1 Reward</div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-top: 2rem; text-align: center;">
+          <div class="button" style="display: inline-block;">Load More Businesses</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
