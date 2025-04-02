@@ -392,6 +392,115 @@
       font-weight: bold;
       color: var(--primary);
     }
+	.business-hours {
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.business-hour-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.business-hour-item:last-child {
+  border-bottom: none;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .navigation {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .user-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .profile-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .tab-navigation {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .tab {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 992px) {
+  .profile-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .post-image {
+    height: 200px;
+  }
+}
+
+.gallery-image {
+  width: 100%;
+  height: 150px;
+  background-color: var(--light);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.reward-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: white;
+  margin-bottom: 1rem;
+}
+
+.reward-image {
+  width: 100%;
+  height: 120px;
+  background-color: var(--light);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.reward-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
   </style>
 </head>
 <body>
@@ -1161,6 +1270,218 @@
         </div>
       </div>
     </div>
+<!-- Business Profile -->
+<div class="wireframe-section">
+  <div class="wireframe-header">Business Profile</div>
+  <div class="wireframe-description">
+    <p>The business profile showcases reputation score, customer engagement stats, offered rewards, and achievements. It also displays the business information, operating hours, and customer reviews.</p>
   </div>
+  <div class="wireframe-content">
+    <div class="header">
+      <div class="logo">TownSquareVibes</div>
+      <div class="navigation">
+        <a href="#">Home</a>
+        <a href="#">Explore</a>
+        <a href="#">Events</a>
+        <a href="#">Rewards</a>
+        <a href="#">Businesses</a>
+      </div>
+      <div class="user-actions">
+        <div class="points-display">🏆 1,250 pts</div>
+        <div>👤 Profile</div>
+      </div>
+    </div>
+    
+    <div class="profile-section">
+      <div>
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <img src="https://via.placeholder.com/120" alt="Wilson Cafe Logo">
+          </div>
+          <h2>Wilson Cafe</h2>
+          <div><span class="badge">Rewards Partner</span><span class="badge">Top Rated</span></div>
+          <div style="margin: 1rem 0;">
+            <div class="reputation-score">94</div>
+            <div>Reputation Score</div>
+            <div style="color: #777; margin-top: 0.5rem;">Coffee Shop • Lebanon, TN</div>
+          </div>
+          <div style="margin-top: 1rem;">
+            <div class="button">Contact Business</div>
+          </div>
+        </div>
+        
+        <div class="profile-card" style="margin-top: 1rem;">
+          <h3>Business Information</h3>
+          <div class="map-container">
+            <img src="https://via.placeholder.com/400x200" alt="Map Location">
+          </div>
+          <div style="text-align: left; margin-bottom: 1rem;">
+            <div><strong>Address:</strong> 123 Main Street, Lebanon, TN 37087</div>
+            <div><strong>Phone:</strong> (615) 555-1234</div>
+            <div><strong>Email:</strong> info@wilsoncafe.com</div>
+            <div><strong>Website:</strong> www.wilsoncafe.com</div>
+          </div>
+          
+          <div class="business-hours">
+            <h4>Business Hours</h4>
+            <div class="business-hour-item">
+              <div>Monday - Friday</div>
+              <div>6:00 AM - 7:00 PM</div>
+            </div>
+            <div class="business-hour-item">
+              <div>Saturday</div>
+              <div>7:00 AM - 7:00 PM</div>
+            </div>
+            <div class="business-hour-item">
+              <div>Sunday</div>
+              <div>8:00 AM - 4:00 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <div class="profile-stats">
+          <div class="stat-card">
+            <div style="font-size: 2rem; font-weight: bold;">4,250</div>
+            <div>Check-ins</div>
+          </div>
+          <div class="stat-card">
+            <div style="font-size: 2rem; font-weight: bold;">156</div>
+            <div>Reviews</div>
+          </div>
+          <div class="stat-card">
+            <div style="font-size: 2rem; font-weight: bold;">3</div>
+            <div>Active Rewards</div>
+          </div>
+          <div class="stat-card">
+            <div style="font-size: 2rem; font-weight: bold;">2,105</div>
+            <div>Likes</div>
+          </div>
+          <div class="stat-card">
+            <div style="font-size: 2rem; font-weight: bold;">485</div>
+            <div>Rewards Redeemed</div>
+          </div>
+          <div class="stat-card">
+            <div style="font-size: 2rem; font-weight: bold;">24</div>
+            <div>Months as Partner</div>
+          </div>
+        </div>
+        
+        <div style="margin-top: 2rem;">
+          <div class="tab-navigation">
+            <div class="tab active">About</div>
+            <div class="tab">Rewards</div>
+            <div class="tab">Reviews</div>
+            <div class="tab">Gallery</div>
+            <div class="tab">Events</div>
+          </div>
+          
+          <div style="margin-top: 1rem;">
+            <h3>About Wilson Cafe</h3>
+            <p>Wilson Cafe is a family-owned coffee shop that has been serving the Lebanon community for over 10 years. We pride ourselves on serving high-quality, locally roasted coffee and homemade pastries in a warm and welcoming atmosphere.</p>
+            <p>Our mission is to create a community gathering place where friends can meet, professionals can work, and everyone can enjoy exceptional coffee and treats. We source our coffee beans from ethical suppliers and partner with local farms for fresh ingredients.</p>
+            
+            <h3 style="margin-top: 2rem;">Featured Rewards</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+              <div class="reward-card">
+                <div class="reward-image">
+                  <img src="https://via.placeholder.com/300x120" alt="Free Coffee">
+                </div>
+                <h4>Free Medium Coffee</h4>
+                <p>Enjoy a free medium coffee of your choice.</p>
+                <div class="reward-details">
+                  <div><strong>300 points</strong></div>
+                  <div class="button button-secondary">View Details</div>
+                </div>
+              </div>
+              <div class="reward-card">
+                <div class="reward-image">
+                  <img src="https://via.placeholder.com/300x120" alt="Pastry and Coffee">
+                </div>
+                <h4>Pastry & Coffee Combo</h4>
+                <p>Get any pastry and medium coffee for free.</p>
+                <div class="reward-details">
+                  <div><strong>650 points</strong></div>
+                  <div class="button button-secondary">View Details</div>
+                </div>
+              </div>
+              <div class="reward-card">
+                <div class="reward-image">
+                  <img src="https://via.placeholder.com/300x120" alt="Coffee Bundle">
+                </div>
+                <h4>Coffee Bundle</h4>
+                <p>One pound of our signature house blend coffee.</p>
+                <div class="reward-details">
+                  <div><strong>800 points</strong></div>
+                  <div class="button button-secondary">View Details</div>
+                </div>
+              </div>
+            </div>
+            
+            <h3 style="margin-top: 2rem;">Recent Reviews</h3>
+            <div class="feed">
+              <div class="post">
+                <div class="post-header">
+                  <div><strong>Mike Thomas</strong> <span style="color: #777;">⭐⭐⭐⭐⭐</span></div>
+                  <div style="color: #777;">2 days ago</div>
+                </div>
+                <div class="post-content">
+                  <p>Best coffee in town! The atmosphere is so cozy, and the staff is always friendly. Their pastries are made fresh daily, and you can definitely taste the difference. My favorite is their cinnamon roll!</p>
+                </div>
+              </div>
+              
+              <div class="post">
+                <div class="post-header">
+                  <div><strong>Sarah Johnson</strong> <span style="color: #777;">⭐⭐⭐⭐</span></div>
+                  <div style="color: #777;">1 week ago</div>
+                </div>
+                <div class="post-content">
+                  <p>I love coming here to work remotely. The wifi is reliable, and they don't mind if you stay for a few hours. The mocha latte is fantastic, and I appreciate that they have plant-based milk options!</p>
+                </div>
+              </div>
+              
+              <div class="post">
+                <div class="post-header">
+                  <div><strong>Robert Wilson</strong> <span style="color: #777;">⭐⭐⭐⭐⭐</span></div>
+                  <div style="color: #777;">2 weeks ago</div>
+                </div>
+                <div class="post-content">
+                  <p>Wilson Cafe has become my morning ritual. The staff knows my order by heart, and they always have a smile to start my day. I've redeemed the free coffee reward twice, and it's so easy to use through the app!</p>
+                </div>
+              </div>
+            </div>
+            
+            <h3 style="margin-top: 2rem;">Photo Gallery</h3>
+            <div class="gallery">
+              <div class="gallery-image">
+                <img src="https://via.placeholder.com/200x150" alt="Cafe Interior">
+              </div>
+              <div class="gallery-image">
+                <img src="https://via.placeholder.com/200x150" alt="Coffee Bar">
+              </div>
+              <div class="gallery-image">
+                <img src="https://via.placeholder.com/200x150" alt="Pastry Display">
+              </div>
+              <div class="gallery-image">
+                <img src="https://via.placeholder.com/200x150" alt="Outdoor Seating">
+              </div>
+              <div class="gallery-image">
+                <img src="https://via.placeholder.com/200x150" alt="Latte Art">
+              </div>
+              <div class="gallery-image">
+                <img src="https://via.placeholder.com/200x150" alt="Staff">
+              </div>
+            </div>
+            
+            <div style="margin-top: 1.5rem; text-align: center;">
+              <div class="button button-secondary">View All Photos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>	
 </body>
 </html>
